@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">VideosApp</string>
+    <string name="reproductor_de_video">Reproductor de video</string>
+    <string name="seleccionar_video">Seleccionar video...</string>
+    <string name="seleccionar_txt">Seleccionar txt...</string>
+    <string name="link">Link</string>
 </resources>

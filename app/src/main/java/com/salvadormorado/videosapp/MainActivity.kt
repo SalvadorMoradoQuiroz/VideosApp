@@ -1,26 +1,17 @@
 package com.salvadormorado.videosapp
 
-import android.Manifest
 import android.app.ProgressDialog
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.media.MediaPlayer.OnPreparedListener
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
-import android.widget.Button
-import android.widget.MediaController
-import android.widget.Toast
-import android.widget.VideoView
+import android.view.View
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import java.io.BufferedReader
-import java.io.File
-import java.io.FileReader
 import java.io.InputStream
 
 
@@ -29,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var videoView: VideoView
     private lateinit var controlador: MediaController
     private lateinit var pd: ProgressDialog
+    private lateinit var textViewLink:TextView
     private var urlVideo = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         videoView = findViewById(R.id.videoView)
+        textViewLink = findViewById(R.id.textViewLink)
         val buttonSelected = findViewById<Button>(R.id.buttonSelected)
         val buttonTxt = findViewById<Button>(R.id.buttonTxt)
 
@@ -97,6 +90,10 @@ class MainActivity : AppCompatActivity() {
             val file = data?.data
             Log.e("Archivo video:", "$file")
             //Toast.makeText(applicationContext, "Se seleccionó un video.", Toast.LENGTH_SHORT).show()
+
+            textViewLink.visibility = View.VISIBLE
+            textViewLink.text = "Link de video:\n ${file}"
+
             videoView.setVideoURI(file)
             videoView.requestFocus()
             videoView.start()
@@ -113,6 +110,7 @@ class MainActivity : AppCompatActivity() {
                 Log.e("line: ", "${line}")
                 if(line!=null){
                     urlVideo = line
+
                 }
                 /*while (line != null) {
                     line = reader.readLine()
@@ -121,6 +119,8 @@ class MainActivity : AppCompatActivity() {
             } finally {
                 reader.close()
             }
+            textViewLink.visibility = View.VISIBLE
+            textViewLink.text = "Link de video:\n ${urlVideo}"
 
             val uri = Uri.parse(urlVideo)
             videoView.setVideoURI(uri)

@@ -15,7 +15,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:text="Reproductor de video"
+        android:text="@string/reproductor_de_video"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -27,7 +27,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:text="Seleccionar video..." />
+        android:text="@string/seleccionar_video" />
 
     <Button
         android:id="@+id/buttonTxt"
@@ -36,14 +36,31 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:text="Seleccionar txt..." />
+        android:text="@string/seleccionar_txt" />
 
-    <VideoView
-        android:id="@+id/videoView"
+    <TextView
+        android:id="@+id/textViewLink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp" />
+        android:text="@string/link"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp" />
+
+    </FrameLayout>
 </LinearLayout>
